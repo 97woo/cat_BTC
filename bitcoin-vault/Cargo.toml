@@ -1,0 +1,26 @@
+[package]
+name = "bitcoin-vault"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# 워크스페이스 공통
+shared = { path = "../shared" }
+bitcoin.workspace = true
+bitcoincore-rpc.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+
+# Bitcoin 특화
+secp256kfun.workspace = true
+schnorr_fun.workspace = true
+sha2.workspace = true
+hex.workspace = true
+tempfile = "3.8.1"
+
+# 유틸리티
+chrono.workspace = true
+uuid.workspace = true
+lazy_static = "1.4.0"

@@ -1,0 +1,2 @@
+[submodule "docker-riscv32"]
+	url = https://github.com/FairgateLabs/bitvmx-docker-riscv32.git

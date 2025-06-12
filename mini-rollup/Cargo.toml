@@ -1,0 +1,27 @@
+[package]
+name = "mini-rollup"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# 워크스페이스 공통
+shared = { path = "../shared" }
+bitcoin-vault = { path = "../bitcoin-vault" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+
+# BitVMX 관련
+bitvmx-cpu-definitions.workspace = true
+emulator.workspace = true
+
+# 유틸리티
+chrono.workspace = true
+uuid.workspace = true
+sha2.workspace = true
+hex.workspace = true
+
+# 비동기
+futures = "0.3"

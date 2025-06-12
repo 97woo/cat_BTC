@@ -1,0 +1,20 @@
+[package]
+name = "shared"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# Bitcoin & 암호화
+bitcoin.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+hex.workspace = true
+
+# 유틸리티
+anyhow.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+tracing.workspace = true
+thiserror = "1.0"
+async-trait = "0.1"

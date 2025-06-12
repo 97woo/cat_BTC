@@ -1,0 +1,49 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "shared",
+    "bitcoin-vault", 
+    "mini-rollup",
+    "cli"
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+
+# 워크스페이스 공통 의존성
+[workspace.dependencies]
+# Bitcoin & 암호화
+bitcoin = { version = "0.31.1", features = ["serde"] }
+bitcoincore-rpc = "0.18.0"
+secp256kfun = "0.9.1"
+schnorr_fun = "0.9.2"
+sha2 = "0.10.8"
+
+# 비동기 & 네트워킹
+tokio = { version = "1.0", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# CLI & 로깅
+clap = { version = "4.4.18", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# 유틸리티
+anyhow = "1.0.79"
+hex = "0.4.3"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# RISC-V & BitVMX (기존)
+bitvmx-cpu-definitions = { path = "BitVMX-CPU/definitions" }
+bitcoin-script-riscv = { path = "BitVMX-CPU/bitcoin-script-riscv" }
+emulator = { path = "BitVMX-CPU/emulator" }
+
+[workspace.metadata]
+description = "Cross-chain Bitcoin DeFi Hub with OP_CAT covenants and BitVMX mini-rollup"
+version = "0.1.0"
+edition = "2021"
