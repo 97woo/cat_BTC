@@ -146,11 +146,11 @@ impl Default for Config {
             },
             fractal: FractalBitcoinConfig {
                 enabled: true,
-                rpc_endpoint: "https://fractal-mainnet.unisat.io".to_string(),
+                rpc_endpoint: "https://open-api-fractal.unisat.io".to_string(),
                 rpc_username: "".to_string(),
                 rpc_password: "".to_string(),
                 chain_id: 1,
-                block_time: 30, // Fractal은 30초 블록
+                block_time: 30, // Fractal은 30초 블록  
                 op_cat_enabled: true,
                 vault_address_prefix: "bc1".to_string(),
                 default_timelock_blocks: 6, // 30초 * 6 = 3분
