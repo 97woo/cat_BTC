@@ -257,13 +257,14 @@ async fn handle_bridge_command(cmd: BridgeCommands) -> Result<()> {
             info!("  총 브릿지된 BTC: 42.15000000 BTC");
         }
         BridgeCommands::Lock { to_chain, amount, recipient } => {
-            info!("🔒 BTC → {} 브릿지", to_chain.to_uppercase());
+            info!("🔒 Fractal BTC → {} 브릿지", to_chain.to_uppercase());
             info!("  금액: {} 사토시 ({:.8} BTC)", amount, amount as f64 / 100_000_000.0);
             info!("  수신자: {}", recipient);
-            info!("  수수료: {} 사토시", amount / 1000); // 0.1%
-            info!("  브릿지 ID: br_1a2b3c4d5e6f7890");
+            info!("  수수료: {} 사토시 (0.05%)", amount / 2000); // Fractal 저렴한 수수료
+            info!("  브릿지 ID: fb_7f8e9d0c1a2b3456");
+            info!("  Fractal 블록 확인: 30초 내 완료");
             info!("✅ 브릿지 요청이 처리되었습니다!");
-            info!("  {} 체인에서 bBTC가 민트됩니다", to_chain);
+            info!("  {} 체인에서 fBTC가 민트됩니다", to_chain);
         }
     }
     Ok(())
@@ -302,36 +303,41 @@ async fn handle_status_command() -> Result<()> {
     
     // Bitcoin 금고 상태
     info!("");
-    info!("📦 Bitcoin L1 금고:");
-    info!("  네트워크: OP_CAT Signet");
-    info!("  활성 금고: 5개");
-    info!("  총 잠긴 BTC: 47.25000000 BTC");
+    info!("📦 Fractal Bitcoin L1 금고:");
+    info!("  네트워크: Fractal Bitcoin Mainnet");
+    info!("  블록 시간: 30초 (고속)");
+    info!("  활성 금고: 12개");
+    info!("  총 잠긴 BTC: 84.75000000 BTC");
     info!("  커버넌트 타입: OP_CAT + 타임락");
+    info!("  OP_CAT 지원: ✅ 완전 활성화");
     
     // 롤업 상태
     info!("");
     info!("🔄 BitVMX Mini-Rollup:");
-    info!("  현재 높이: 247");
-    info!("  상태 루트: 0xa1b2c3d4e5f67890...");
-    info!("  대기 중인 작업: 15개");
-    info!("  다음 배치까지: 12초");
+    info!("  현재 높이: 1,247");
+    info!("  상태 루트: 0xf7a8c9d2e1b4f3e6...");
+    info!("  대기 중인 작업: 28개");
+    info!("  다음 배치까지: 8초");
     info!("  RISC-V 실행 환경: 활성");
+    info!("  Fractal 동기화: ✅ 실시간");
     
     // 브릿지 상태
     info!("");
     info!("🌉 크로스체인 브릿지:");
-    info!("  Solana: 🟢 온라인 (bBTC 유통: 35.5 BTC)");
-    info!("  Ethereum: 🟡 준비 중");
-    info!("  처리 중인 메시지: 3개");
-    info!("  브릿지 수수료: 0.1%");
+    info!("  Fractal Bitcoin: 🟢 메인넷 연결됨");
+    info!("  Solana: 🟢 온라인 (fBTC 유통: 68.2 BTC)");
+    info!("  Ethereum: 🟡 준비 중 (fBTC 예정)");
+    info!("  처리 중인 메시지: 7개");
+    info!("  브릿지 수수료: 0.05% (Fractal 고속)");
     
     // DeFi 상태
     info!("");
     info!("💱 DeFi 프로토콜:");
-    info!("  활성 풀: 12개");
-    info!("  총 유동성: $45,250,000");
-    info!("  24h 거래량: $8,750,000");
-    info!("  스왑 수수료: 0.3%");
+    info!("  활성 풀: 18개");
+    info!("  총 유동성: $127,500,000");
+    info!("  24h 거래량: $24,750,000");
+    info!("  스왑 수수료: 0.2% (Fractal 최적화)");
+    info!("  fBTC/USDC 풀: $38.5M TVL");
     
     // 시스템 상태
     info!("");

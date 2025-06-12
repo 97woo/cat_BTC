@@ -104,6 +104,7 @@ pub struct BridgeMessage {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 pub enum ChainId {
     Bitcoin,
+    FractalBitcoin,
     Solana,
     Ethereum,
     Polygon,

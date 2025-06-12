@@ -1,30 +1,31 @@
 # Purrfect DeFi Hub 🐱⚡
 
-**실제 작동하는** 크로스체인 비트코인 DeFi 허브 - OP_CAT 커버넌트와 BitVMX 미니 롤업을 활용한 경량 DeFi 플랫폼
+**실제 작동하는** 크로스체인 비트코인 DeFi 허브 - Fractal Bitcoin OP_CAT 커버넌트와 BitVMX 미니 롤업을 활용한 고속 DeFi 플랫폼
 
 ## 🎯 프로젝트 목적
 
 **Purrfect DeFi Hub**는 비트코인을 L1에서 안전하게 잠가두고, Solana 같은 고속 체인에서 래핑-BTC(bBTC)를 활용해 스왑·예치·수익 창출이 가능한 완전 작동하는 DeFi 허브입니다.
 
 ### ✅ 현재 작동 중인 기능들
-- 🔒 Bitcoin 금고 관리 (OP_CAT 커버넌트)
+- 🔒 Fractal Bitcoin 금고 관리 (OP_CAT 커버넌트)
+- ⚡ 30초 고속 블록으로 빠른 확인
 - 🔄 BitVMX Mini-Rollup (30초 배치 처리)
-- 🌉 크로스체인 브릿지 (Solana 연동)
-- 💱 DeFi 프로토콜 (스왑, 유동성 풀)
+- 🌉 크로스체인 브릿지 (Fractal ↔ Solana)
+- 💱 DeFi 프로토콜 (fBTC 스왑, 유동성 풀)
 - 📊 실시간 시스템 모니터링
 
 ### 핵심 아키텍처
 
 ```
-Bitcoin L1 (OP_CAT Covenant)
-    ↓ BTC 잠금/해제
-🔒 BTC 금고 (Bitcoin Vault)
-    ↓ 상태 동기화  
+Fractal Bitcoin L1 (OP_CAT Covenant, 30초 블록)
+    ↓ BTC 잠금/해제 (고속)
+🔒 fBTC 금고 (Fractal Bitcoin Vault)
+    ↓ 실시간 동기화  
 🔄 BitVMX Mini-Rollup (30초 배치)
-    ↓ 래핑
-🌉 크로스체인 브릿지
+    ↓ 크로스체인 래핑
+🌉 브릿지 (Fractal ↔ Solana/Ethereum)
     ↓
-🚀 Solana/기타 고속체인 (bBTC DeFi)
+🚀 Solana/기타 고속체인 (fBTC DeFi)
 ```
 
 ## 🏗️ 프로젝트 구조

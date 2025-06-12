@@ -9,6 +9,9 @@ pub struct Config {
     /// Bitcoin 네트워크 설정
     pub bitcoin: BitcoinConfig,
     
+    /// Fractal Bitcoin 설정
+    pub fractal: FractalBitcoinConfig,
+    
     /// 롤업 설정
     pub rollup: RollupConfig,
     
@@ -38,6 +41,35 @@ pub struct BitcoinConfig {
     
     /// BitVMX 설정
     pub bitvmx_elf_path: String,
+}
+
+/// Fractal Bitcoin 설정
+#[derive(Serialize, Deserialize, Clone, Debug)]
+pub struct FractalBitcoinConfig {
+    /// Fractal 네트워크 활성화
+    pub enabled: bool,
+    
+    /// Fractal RPC 설정
+    pub rpc_endpoint: String,
+    pub rpc_username: String,
+    pub rpc_password: String,
+    
+    /// Fractal 체인 ID
+    pub chain_id: u32,
+    
+    /// 블록 시간 (초)
+    pub block_time: u64,
+    
+    /// OP_CAT 지원 여부
+    pub op_cat_enabled: bool,
+    
+    /// 금고 설정
+    pub vault_address_prefix: String,
+    pub default_timelock_blocks: u16,
+    
+    /// Fractal-Bitcoin 브릿지 설정
+    pub bridge_contract_address: Option<String>,
+    pub min_confirmations: u32,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -111,6 +143,19 @@ impl Default for Config {
                 default_timelock_blocks: 20,
                 vault_state_file: "vault_state.json".to_string(),
                 bitvmx_elf_path: "BitVMX-CPU/bitvmx-programs/vault_condition.elf".to_string(),
+            },
+            fractal: FractalBitcoinConfig {
+                enabled: true,
+                rpc_endpoint: "https://fractal-mainnet.unisat.io".to_string(),
+                rpc_username: "".to_string(),
+                rpc_password: "".to_string(),
+                chain_id: 1,
+                block_time: 30, // Fractal은 30초 블록
+                op_cat_enabled: true,
+                vault_address_prefix: "bc1".to_string(),
+                default_timelock_blocks: 6, // 30초 * 6 = 3분
+                bridge_contract_address: None,
+                min_confirmations: 6,
             },
             rollup: RollupConfig {
                 batch_interval_seconds: 30,
